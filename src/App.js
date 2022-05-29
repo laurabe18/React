@@ -1,9 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <h1>Blanqueria del Oeste!!</h1>
+    <>
+     <NavBar/>
+     <ItemListContainer greeting={`bienvenido a Blanqueria Oeste`} nombre={`Christian`}/>
+    </>
   );
 }
 

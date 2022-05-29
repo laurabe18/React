@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.myH1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-style: italic;
+  color: cadetblue;
+}
