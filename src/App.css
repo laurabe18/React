@@ -45,3 +45,15 @@
   font-style: italic;
   color: cadetblue;
 }
+
+
+.h2Count{
+  font-size: 50px;
+  font-style: italic;
+  color: rgb(248, 74, 146) ;
+  padding: 5px 20px;
+}
+
+.btnCount{
+  color: rgb(248, 74, 146);
+}
