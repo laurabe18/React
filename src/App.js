@@ -15,7 +15,7 @@ function App() {
     <>
      <NavBar/>
      <ItemListContainer greeting={`bienvenido a Blanqueria Oeste`} nombre={`Christian`} />
-     <ItemCount inicial ={1} stock ={10} onAdd ={onAdd} />
+     {/* <ItemCount inicial ={1} stock ={10} onAdd ={onAdd} /> */}
     </>
   );
 }
