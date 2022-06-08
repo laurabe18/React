@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../App.css';
 import ItemList from './ItemList';
 
-export default function ItemListContainer({greeting, nombre}) {
+export default function ItemListContainer({greeting, name}) {
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -14,56 +14,50 @@ export default function ItemListContainer({greeting, nombre}) {
       res([
         {
          id: 1213 ,
-         name: 'Sabana AFA',
-         medida: '1 1/2 plaza',
-         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
-         monto: '$ 2.500' , 
-         image: 'sabana-afa-min.jpg' ,
+         title: 'Sabana AFA',
+         description: 'Medida: 1 1/2 plaza. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
+         price: '$ 2.500' , 
+         pictureUrl: 'sabana-afa-min.jpg' ,
          stock: '10 unidades',
         },
         {
         id: 1314 , 
-        name: 'Sabana Brodery', 
-        medida: '2 1/2 plaza', 
-        descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
-        monto: '$ 3.500' , 
-        image: '/image/sabana-brodery-min.jpg',
+        title: 'Sabana Brodery', 
+        description: 'Medida: 2 1/2 plaza. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
+        price: '$ 3.500' , 
+        pictureUrl: 'sabana-brodery-min.jpg',
         stock: '8 unidades',
         },
         {
           id: 1415 , 
-          name: 'Sabana Casa Blanca', 
-          medida: '2 1/2 plaza', 
-          descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
-          monto: '$ 3.800' , 
-          image: 'sabana-casaBlanca-min.jpg' ,
+          title: 'Sabana Casa Blanca', 
+          description: 'Medida: 2 1/2 plaza. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
+          price: '$ 3.800' , 
+          pictureUrl: 'sabana-casaBlanca-min.jpg' ,
           stock: '5 unidades',
         },
         {
           id: 1617 , 
-          name: 'Toallon Escudo', 
-          medida: '0,90 x 0,70 cm', 
-          descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
-          monto: '$ 2.200', 
-          image: 'toallon-escudo-min.jpeg',
+          title: 'Toallon Escudo', 
+          description: 'Medida: 0,90 x 0,70 cm. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
+          price: '$ 2.200', 
+          pictureUrl: 'toallon-escudo-min.jpeg',
           stock: '30 unidades',
         },
         {
           id: 1819, 
-          name: 'Toallon y toalla', 
-          medida: '1,20 x 0,70 cm',
-          descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!', 
-          monto: '$ 2.500', 
-          image: 'toallonYtoalla-min.jpg' ,
+          title: 'Toallon y toalla', 
+          description: 'Medida: 1,20 x 0,70 cm. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!', 
+          price: '$ 2.500', 
+          pictureUrl: 'toallonYtoalla-min.jpg' ,
           stock: '12 unidades',
         },
         {
           id: 1011, 
-          name: 'Individual', 
-          medida: '0,60 x 0,40cm',
-          descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
-          monto: '$ 500', 
-          image: 'individuales-min.jpg',
+          title: 'Individual', 
+          description: 'Medida: 0,60 x 0,40cm. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
+          price: '$ 500', 
+          pictureUrl: 'individuales-min.jpg',
           stock: '50 unidades'
         },
       ]);
@@ -88,7 +82,7 @@ export default function ItemListContainer({greeting, nombre}) {
   return (
     <>
     <h1 className='myH1'>
-        {`Hola ${nombre} , ${greeting}`}
+        {`Hola ${name} , ${greeting}`}
     </h1>
     <div>{loading && 'loading...'}</div>
     <div>{error && 'Hubo un error con la carga del producto'}</div>
