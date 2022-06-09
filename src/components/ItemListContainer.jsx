@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../App.css';
 import ItemList from './ItemList';
 
+
 export default function ItemListContainer({greeting, name}) {
 
   const [loading, setLoading] = useState(true)
@@ -17,7 +18,7 @@ export default function ItemListContainer({greeting, name}) {
          title: 'Sabana AFA',
          description: 'Medida: 1 1/2 plaza. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
          price: '$ 2.500' , 
-         pictureUrl: 'sabana-afa-min.jpg' ,
+         pictureUrl: 'sabana-afa-min.jpg' , 
          stock: '10 unidades',
         },
         {
@@ -33,7 +34,7 @@ export default function ItemListContainer({greeting, name}) {
           title: 'Sabana Casa Blanca', 
           description: 'Medida: 2 1/2 plaza. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Blanditiis qui eos, eligendi repellat tenetur optio!',
           price: '$ 3.800' , 
-          pictureUrl: 'sabana-casaBlanca-min.jpg' ,
+          pictureUrl: 'sabanas-casaBlanca-min.jpg' ,
           stock: '5 unidades',
         },
         {

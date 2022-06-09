@@ -6,8 +6,8 @@ const Item = ({resultado}) => {
 
   return (
       <>
-    <div className="card" style={{width: '15rem'}}>
-      <img src={pictureUrl} className="card-img-top" alt='Imagen' />
+    <div className="card" style={{width: '18rem'}}>
+      <img src={pictureUrl} className="card-img-top"style={{width: 286 , height: 286}}  alt='Imagen' />  
       <div className="card-body">
          <h5 className="card-title">{title}</h5>
          <p className="card-text">
