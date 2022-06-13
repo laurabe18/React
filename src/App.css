@@ -82,3 +82,16 @@
 .card-text{
   color: white;
 }
+
+/* Card Detail */
+
+.cardDetailBody{
+  background: white;
+  width: 400px;
+}
+
+.cardDetailText{
+  color: #282c34;
+  font-size: 20px;
+  padding: 20px;
+}
