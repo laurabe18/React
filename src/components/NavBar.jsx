@@ -10,28 +10,29 @@ import MenuItem from '@mui/material/MenuItem';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import CartWidget from './CartWidget';
 import { pink } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
    
-const pages = ['Inicio', 'Producto', 'Contacto'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Sabanas', 'Toallas', 'Cocina', 'Toillet'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
    
 const NavBar = () => {
    const [anchorElNav, setAnchorElNav] = React.useState(null);
-   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  //  const [anchorElUser, setAnchorElUser] = React.useState(null);
    
    const handleOpenNavMenu = (event) => {
        setAnchorElNav(event.currentTarget);
    };
-   const handleOpenUserMenu = (event) => {
-       setAnchorElUser(event.currentTarget);
-     };
+  //  const handleOpenUserMenu = (event) => {
+  //      setAnchorElUser(event.currentTarget);
+  //    };
    
      const handleCloseNavMenu = () => {
        setAnchorElNav(null);
      };
    
-     const handleCloseUserMenu = () => {
-       setAnchorElUser(null);
-     };
+    //  const handleCloseUserMenu = () => {
+    //    setAnchorElUser(null);
+    //  };
    
      return (
        <AppBar style={{ background: '#2E3B55' }} position="static">
@@ -39,12 +40,13 @@ const NavBar = () => {
            <Toolbar disableGutters>
              <DiamondIcon sx={{ color: pink[300], fontSize: 40, display: { xs: 'none', md: 'flex' }, mr: 1 }} />
              <Typography
+              className='typography'
                variant="h6"
                noWrap
                component="a"
                href="/"
                sx={{
-                 mr: 2,
+                 mr: 18,
                  display: { xs: 'none', md: 'flex' },
                  fontFamily: 'monospace',
                  fontWeight: 700,
@@ -87,17 +89,22 @@ const NavBar = () => {
                >
                  {pages.map((page) => (
                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                     <Typography textAlign="center">{page}</Typography>
+                     <Typography textAlign="center">
+                       <Link className='navbar-brand' to= {`category/${page}`}>
+                          {page}
+                       </Link>
+                     </Typography>
                    </MenuItem>
                  ))}
                </Menu>
              </Box>
              <DiamondIcon sx={{ color: pink[300], fontSize: 40, display: { xs: 'flex', md: 'none' }, mr: 1 }} />
              <Typography
+               className='typography'
                variant="h5"
                noWrap
                component="a"
-               href=""
+               href="/"
                sx={{
                  mr: 2,
                  display: { xs: 'flex', md: 'none' },
@@ -118,7 +125,9 @@ const NavBar = () => {
                    onClick={handleCloseNavMenu}
                    sx={{ my: 2, color: 'white', display: 'block' }}
                  >
-                   {page}
+                    <Link className='navbar' to = {`category/${page}`}>
+                      {page}
+                    </Link>
                  </Button>
                ))}
              </Box>
