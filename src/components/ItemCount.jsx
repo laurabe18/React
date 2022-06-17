@@ -22,13 +22,12 @@ const ItemCount = ({inicial, stock, onAdd}) => {
 
   return (
     <>
-    <div className='container-sm bg-dark text-center m-5' style={{ width: '200px' }}>
-        <h2 className='h2Count'>{count}</h2>
+    <div className='d-flex gap-3 justify-content-center mt-3'>
         <button className='btnCount' onClick={add}>+</button>
+        <p className='pCount'>{count}</p>
         <button className='btnCount' onClick={subtract}>-</button>
+    </div>    
         <button className='btnCount' onClick={updateCart}>Agregar al carrito</button>
-
-    </div>
     </>
   )
 }
