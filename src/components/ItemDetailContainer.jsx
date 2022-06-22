@@ -15,8 +15,9 @@ function ItemDetailContainer() {
     useEffect(() => {
         const product = new Promise ((res, rej) =>{
          setTimeout(() => {
-            res(productsMock[ +id - 1 ]);
-         }, 2000);
+            const itemFounded = productsMock.find((product) => product.id == id);
+            res(itemFounded);
+         }, 1000);
         })
         
         product

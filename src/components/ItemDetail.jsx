@@ -17,7 +17,6 @@ function ItemDetail({detail}) {
       setCounter(false);
       // alert(`Cantidad de productos ${qty}`);
       //contador envia el num de productos comprados
-       isInCart(detail.id);
        addItem(detail, qty)
     }
   return (

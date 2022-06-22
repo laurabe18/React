@@ -7,6 +7,7 @@ const {Provider} = CartContext;
 
 const MyProvider = ({children}) =>{
     const[cart, setCart] = useState([]);
+    console.log(cart);
 
     //METODO SAME-ITEMDETAIL, se va a encargar de detectar si el producto ya se encuentar en el carrito y accionara o no, devolviendo un booleano.
     const isInCart =(id)=>{
@@ -51,7 +52,7 @@ const MyProvider = ({children}) =>{
 
     //Metodo REDUCE-CART, retorna el precio total del carrito
     const getItemPrice =()=>{
-        return cart.reduce((acc, x) => acc += x.qty * x.price)
+        return cart.reduce((acc, x) => acc += x.qty * x.price, 0)
     }
 
    return <Provider value = {{cart, isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice}}>{children}</Provider>
