@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react'
-import {Link, NavLink} from 'react-router-dom';
+import { useContext } from 'react';
+import {Link } from 'react-router-dom';
+import { CartContext } from './context/CartContext';
 import ItemCount from './ItemCount';
 
 function ItemDetail({detail}) {
@@ -9,10 +11,14 @@ function ItemDetail({detail}) {
 
     const[counter, setCounter] = useState(true)
 
-    const onAdd = (contador) =>{
-      setCounter(false)
-      console.log(contador)
+    const {isInCart, addItem} = useContext(CartContext)
 
+    const onAdd = (qty) =>{
+      setCounter(false);
+      // alert(`Cantidad de productos ${qty}`);
+      //contador envia el num de productos comprados
+       isInCart(detail.id);
+       addItem(detail, qty)
     }
   return (
     <>
@@ -23,7 +29,7 @@ function ItemDetail({detail}) {
          <p className='card-text'>
           DESCRIPCION: {description} 
           <br />
-          MONTO: {price} 
+          MONTO: $ {price} 
           <br />
           STOCK: {stock} 
           <br />
