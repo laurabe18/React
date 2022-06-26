@@ -11,7 +11,7 @@ function ItemDetail({detail}) {
 
     const[counter, setCounter] = useState(true)
 
-    const {isInCart, addItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     const onAdd = (qty) =>{
       setCounter(false);

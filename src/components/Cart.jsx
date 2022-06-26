@@ -1,44 +1,94 @@
 import React, { useContext } from 'react'
 import { CartContext } from './context/CartContext'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import IconButton from '@mui/material/IconButton';
+import {Link } from 'react-router-dom';
 
-function Cart() {
-
+export default function Cart() {
   const {cart, deleteItem, getItemPrice, emptyCart} = useContext(CartContext)
-
   return (
-    <>
-      {cart.length > 0 ? (
-        <>
-          <div>
-            {cart.map((item, index) => (
-              <div key={index} className='text-center mt-3'>
-              <>
-               <img src={`../${item.pictureUrl}`} style ={{width:200}} alt="producto" />
-               <p className='text-center'>ARTICULO: {item.title}</p>
-               <p className='text-center'>TIPO: {item.category}</p>
-               <p className='text-center'>PRECIO: $ {item.price}</p>
-               <p className='text-center'>CANTIDAD: {item.qty}</p>
-               <p className='text-center'>SUBTOTAL: $ {item.price * item.qty}</p>
-               <button className='btnCard btn' onClick = {() => deleteItem(item.id)}>CANCELAR PRODUCTO</button>
+   <>
+    {cart.length > 0 ? (
+      <>
+     <TableContainer component={Paper}>
+       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+         <TableHead>
+           <TableRow>
+             <TableCell align="center" colSpan={6}>
+               Detalle
+             </TableCell>
+           </TableRow>
+           <TableRow>
+             <TableCell></TableCell>
+             <TableCell align='center'>Producto</TableCell>
+             <TableCell align='center'>Precio Unitario</TableCell>
+             <TableCell align='center'>Precio Total</TableCell>
+             <TableCell align='center'></TableCell>
+           </TableRow>
+          </TableHead>
+          <TableBody>
+           {cart.map((item, index) => (
+             <>
+               <TableRow key={index}>
+                 <TableCell align='center'>
+                   <img src={`${item.pictureUrl}`} style={{ width: 100, height: 100 }} cols={1} 
+                    alt={item.title}
+                    loading="lazy"
+                    />
+                 </TableCell>
+                 <TableCell align='center'>{item.title + " x " + item.qty}</TableCell>
+                 <TableCell align='center'>{item.price}</TableCell>
+                 <TableCell align='center'>{getItemPrice()}</TableCell>
+                 <TableCell align='center'>
+                   <IconButton aria-label="delete" color="error" onClick = {() => deleteItem(item.id)}>
+                     <DeleteIcon />
+                   </IconButton>
+                 </TableCell>
+                </TableRow>
               </>
-              </div>
             ))}
-            <div className='text-center'>
-              <p className='text-center mt-5'>PRECIO TOTAL $ {getItemPrice()}</p>
-              <button className='btnCard btn' onClick = {()=> emptyCart()}>VACIAR CARRITO</button>
-            </div>
-          </div>
-        </>
-       )
-       : (
-       <>
-         <div className='text-center'>
-           <p>SIN PRODUCTOS</p>
-          </div>
-       </>
-      )} 
+          </TableBody>
+          <TableBody>
+            {cart.map((item, index) => (
+              <>
+                <TableRow key={index}>
+                 <TableCell align='center' colSpan={6}>
+                    PRECIO FINAL: $ {getItemPrice() + ` (x ${item.qty} ${item.title})`}
+                    <div className='mt-5'> 
+                      {/* tengo que realizar la funcion para finalizar la compra */}
+                      <Button className='btnCard btn' startIcon={<SendIcon />} >
+                        FINALIZAR COMPRA 
+                     </Button>
+                     <Button className='btnCard btn' endIcon={<DeleteIcon/>} onClick = {()=> emptyCart()}>
+                       VACIAR CARRITO
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              </>
+            ))}
+          </TableBody>
+        </Table>
+     </TableContainer>
+     </>
+     ):(
+      <>
+       <div className='text-center mt-5'>
+          <p>TODAVIA NO AGREGASTE NINGUN PRODUCTO AL CARRITO</p>
+          <Link className='btnCard btn' to={`/`}>EMPEZAR A COMPRAR</Link>
+        </div>
+      </>
+    )}
     </>
   );
 }
 
-export default Cart;
