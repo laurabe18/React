@@ -2,39 +2,36 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import '../App.css';
 import ItemList from './ItemList';
-import productsMock from './helpers/data';
-import { useParams } from 'react-router-dom';
+// import productsMock from './helpers/data';
+// import { useParams } from 'react-router-dom';
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
 
 export default function ItemListContainer() {
 
-  const {id} = useParams();
+  //  const {id} = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [resultado, setResultado] = useState([]);
 
   
   useEffect(() => { 
-    setLoading(true);
-    setError(false);
-    setResultado([]);
-      
-    const products = new Promise((res, rej) => {
-      setTimeout(() => {
-        !id ? res(productsMock) : res(productsMock.filter(product => product.category === id));
-      }, 2000);
-    });
+    const db = getFirestore();
 
-    products
-    .then((result) =>{
-      setResultado(result)
+    const itemsCollection = collection(db, 'items');
+    
+    getDocs(itemsCollection).then((snapshot) => {
+      
+     setResultado(
+      snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
     })
-    .catch((error) => {
+    .catch((error) =>{
       setError(error)
     })
     .finally(() =>{
       setLoading(false)
-    })
-  }, [id])
+    });
+  }, [])
 
   return (
     <>

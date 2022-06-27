@@ -1,6 +1,7 @@
 
 import * as React from 'react';
-import {AppBar, Typography, IconButton, Tooltip, Menu, Avatar} from '@mui/material';
+import {AppBar, Typography, IconButton,  Menu} from '@mui/material';
+// import {Tooltip, Avatar} from '@mui/material';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,7 +13,7 @@ import CartWidget from './CartWidget';
 import { pink } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
    
-const pages = ['Sabanas', 'Toallas', 'Cocina', 'Toillet'];
+const pages = ['sabanas', 'toallas', 'cocina', 'cortinas'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
    
 const NavBar = () => {
