@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import productsMock from './helpers/data'
+// import productsMock from './helpers/data'
 import ItemDetail from './ItemDetail';
+import {doc, getDoc, getFirestore} from 'firebase/firestore';
 
 
 
@@ -13,25 +14,19 @@ function ItemDetailContainer() {
     const[resultado, setResultado] = useState([]);
 
     useEffect(() => {
-        const product = new Promise ((res, rej) =>{
-         setTimeout(() => {
-            const itemFounded = productsMock.find((product) => product.id == id);
-            res(itemFounded);
-         }, 1000);
+        const db = getFirestore();
+
+        const productsRef = doc(db, 'items', id);
+
+        getDoc(productsRef).then((snapshot) => {
+           setResultado({...snapshot.data(), id: snapshot.id});
         })
-        
-        product
-        .then((result) =>{
-          setResultado(result)
+        .catch((error) => {
+          setError(error)
         })
-        .catch((error) =>{
-            setError();
-            console.log(error)
-        })
-        .finally(() =>{
-            setLoading(false)
-        })
-    
+        .finally(() => {
+          setLoading(false)
+        });
       
     }, [id])
     
