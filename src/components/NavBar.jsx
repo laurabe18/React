@@ -89,7 +89,9 @@ const NavBar = () => {
                  }}
                >
                  {pages.map((page) => (
-                   <MenuItem key={page} onClick={handleCloseNavMenu}>
+                   <MenuItem 
+                   key={page} 
+                   onClick={handleCloseNavMenu}>
                      <Typography textAlign="center">
                        <Link className='navbar-brand' to= {`category/${page}`}>
                           {page}
