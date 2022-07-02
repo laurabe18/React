@@ -7,11 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import IconButton from '@mui/material/IconButton';
 import {Link } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 export default function Cart() {
   const {cart, deleteItem, getItemPrice, emptyCart} = useContext(CartContext)
@@ -65,12 +65,12 @@ export default function Cart() {
                     PRECIO FINAL: $ {getItemPrice() + ` (x ${item.qty} ${item.title})`}
                     <div className='mt-5'> 
                       {/* tengo que realizar la funcion para finalizar la compra */}
-                      <Button className='btnCard btn' startIcon={<SendIcon />} >
+                      <Link to ='/checkout' className='btnCard btn'>
                         FINALIZAR COMPRA 
-                     </Button>
-                     <Button className='btnCard btn' endIcon={<DeleteIcon/>} onClick = {()=> emptyCart()}>
+                     </Link>
+                     <Box className='btnCard btn' onClick = {()=> emptyCart()}>
                        VACIAR CARRITO
-                      </Button>
+                      </Box>
                     </div>
                   </TableCell>
                 </TableRow>

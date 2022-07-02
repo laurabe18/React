@@ -37,13 +37,6 @@
   }
 } */
 
-/* .h2Count{
-  font-size: 50px;
-  font-style: italic;
-  color: rgb(248, 74, 146) ;
-  padding: 5px 20px;
-} */
-
 /* CARDS */
 
 .card-title{
@@ -97,10 +90,31 @@
   color: rgb(248, 74, 146);
   box-shadow: 2px 2px 2px pink;
   border: none;
-  
+  text-decoration: none;
 }
 
 .btnCard:hover{
   text-shadow: 0 0 5px rgb(247, 90, 116), 0 0 15px rgb(247, 90, 116), 0 0 30px rgb(247, 90, 116), 0 0 50px rgb(247, 90, 116);
 }
 
+/* CHECKOUT */
+
+.checkoutBody{
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkoutBody input{
+  padding: 0.2em;
+  margin: 10px;
+  border: 2px solid pink;
+  border-radius: 5px;
+}
+
+.pCheck{
+  background-color: pink;
+  max-width: 300px;
+}
