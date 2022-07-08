@@ -18,7 +18,7 @@ export default function NavBar() {
   
 
   return (
-    <AppBar style={{ background: '#2E3B55' }} position='static'>
+    <AppBar style={{ background: '#bdbdbd' }} position='static'>
       <Container maxWidth='xl'>
         <Toolbar>
           
