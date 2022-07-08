@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import {createContext} from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 
 export const CartContext = createContext();
 
 const {Provider} = CartContext;
 
 const MyProvider = ({children}) =>{
-    const[cart, setCart] = useState([]);
+    const[cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []);
     console.log(cart);
 
     //METODO SAME-ITEMDETAIL, se va a encargar de detectar si el producto ya se encuentar en el carrito y accionara o no, devolviendo un booleano.
@@ -54,6 +53,12 @@ const MyProvider = ({children}) =>{
     const getItemPrice =()=>{
         return cart.reduce((acc, product) => acc += product.qty * product.price, 0)
     }
+
+    useEffect(() => {
+      
+     localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
+    
 
    return <Provider value = {{cart, isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice}}>{children}</Provider>
 }

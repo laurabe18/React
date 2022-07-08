@@ -33,7 +33,7 @@ function ItemDetail({detail}) {
           STOCK: {stock} 
           <br />
          </p>
-         {counter ? <ItemCount inicial ={1} stock ={10} onAdd ={onAdd} />
+         {counter ? <ItemCount inicial ={1} stock ={stock} onAdd ={onAdd} />
             :
             <>
             <Link className='btnCard btn' to={`/cart`}>Ir al carrito</Link>

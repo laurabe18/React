@@ -1,3 +1,6 @@
+.link{
+  text-decoration: none;
+}
 
 .typography:hover{
   color: pink;
@@ -8,12 +11,19 @@
   text-decoration: none;
 } */
 
-.navbar{
+/* .navbar{
   color: white;
   text-decoration: none;
+} */
+.navbar{
+  color: black;
+  text-decoration: none;
+}
+.navbar:hover{
+  color: pink;
 }
 
-.navbar:hover{
+.nav-link:hover{
   color: pink;
   text-shadow: 0 0 5px rgb(247, 90, 116), 0 0 15px rgb(247, 90, 116), 0 0 30px rgb(247, 90, 116), 0 0 50px rgb(247, 90, 116);
 }

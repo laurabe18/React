@@ -1,147 +1,152 @@
+import { useState } from 'react'
 
-import * as React from 'react';
-import {AppBar, Typography, IconButton,  Menu} from '@mui/material';
-// import {Tooltip, Avatar} from '@mui/material';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import DiamondIcon from '@mui/icons-material/Diamond';
-import CartWidget from './CartWidget';
+import { AppBar, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
+import { Menu } from '@mui/icons-material';
+import  DiamondIcon from '@mui/icons-material/Diamond';
 import { pink } from '@mui/material/colors';
-import { Link } from 'react-router-dom';
-   
-const pages = ['sabanas', 'toallas', 'cocina', 'cortinas'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-   
-const NavBar = () => {
-   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  //  const [anchorElUser, setAnchorElUser] = React.useState(null);
-   
-   const handleOpenNavMenu = (event) => {
-       setAnchorElNav(event.currentTarget);
-   };
-  //  const handleOpenUserMenu = (event) => {
-  //      setAnchorElUser(event.currentTarget);
-  //    };
-   
-     const handleCloseNavMenu = () => {
-       setAnchorElNav(null);
-     };
-   
-    //  const handleCloseUserMenu = () => {
-    //    setAnchorElUser(null);
-    //  };
-   
-     return (
-       <AppBar style={{ background: '#2E3B55' }} position="static">
-         <Container maxWidth="xl">
-           <Toolbar disableGutters>
-             <DiamondIcon sx={{ color: pink[300], fontSize: 40, display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-             <Typography
-              className='typography'
-               variant="h6"
-               noWrap
-               component="a"
-               href="/"
-               sx={{
-                 mr: 18,
-                 display: { xs: 'none', md: 'flex' },
-                 fontFamily: 'monospace',
-                 fontWeight: 700,
-                 letterSpacing: '.1rem',
-                 color: 'inherit',
-                 textDecoration: 'none',
-               }}
-             >
-               BLANQUERIA OESTE
-             </Typography>
-   
-             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-               <IconButton
-                 size="large"
-                 aria-label="account of current user"
-                 aria-controls="menu-appbar"
-                 aria-haspopup="true"
-                 onClick={handleOpenNavMenu}
-                 color="inherit"
-               >
-                 <MenuIcon />
-               </IconButton>
-               <Menu
-                 id="menu-appbar"
-                 anchorEl={anchorElNav}
-                 anchorOrigin={{
-                   vertical: 'bottom',
-                   horizontal: 'left',
-                 }}
-                 keepMounted
-                 transformOrigin={{
-                   vertical: 'top',
-                   horizontal: 'left',
-                 }}
-                 open={Boolean(anchorElNav)}
-                 onClose={handleCloseNavMenu}
-                 sx={{
-                   display: { xs: 'block', md: 'none' },
-                 }}
-               >
-                 {pages.map((page) => (
-                   <MenuItem 
-                   key={page} 
-                   onClick={handleCloseNavMenu}>
-                     <Typography textAlign="center">
-                       <Link className='navbar-brand' to= {`category/${page}`}>
-                          {page}
-                       </Link>
-                     </Typography>
-                   </MenuItem>
-                 ))}
-               </Menu>
-             </Box>
-             <DiamondIcon sx={{ color: pink[300], fontSize: 40, display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-             <Typography
-               className='typography'
-               variant="h5"
-               noWrap
-               component="a"
-               href="/"
-               sx={{
-                 mr: 2,
-                 display: { xs: 'flex', md: 'none' },
-                 flexGrow: 1,
-                 fontFamily: 'monospace',
-                 fontWeight: 700,
-                 letterSpacing: '.1rem',
-                 color: 'inherit',
-                 textDecoration: 'none',
-               }}
-             >
-               BLANQUERIA OESTE
-             </Typography>
-             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-               {pages.map((page) => (
-                 <Button
-                   key={page}
-                   onClick={handleCloseNavMenu}
-                   sx={{ my: 2, color: 'white', display: 'block' }}
-                 >
-                    <Link className='navbar' to = {`category/${page}`}>
-                      {page}
+
+import CartWidget from './CartWidget';
+import { Link, NavLink } from 'react-router-dom';
+
+
+
+
+export default function NavBar() {
+
+  const pages = ['sabanas', 'toallas', 'cocina', 'cortinas'];
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  
+
+  return (
+    <AppBar style={{ background: '#2E3B55' }} position='static'>
+      <Container maxWidth='xl'>
+        <Toolbar>
+          
+          {/* Desktop  */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Link to='/' style={{
+              display: 'flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              color: 'white',
+            }}>
+              <DiamondIcon sx={{ color: pink[300], fontSize: 40, p: 0, marginRight: 1, display: { xs: 'none', md: 'flex' } }}/>
+              <Typography
+                className='typography'
+                variant="h6"
+                noWrap
+                href="/"
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  textDecoration: 'none',
+                  color: 'white'
+                }}
+              >
+                Blanqueria Oeste
+              </Typography>
+            </Link>
+          </Box>
+
+          <Box sx={{ flexGrow: 1, justifyContent: 'center', alignContent: 'center', gap: 4, display: { xs: 'none', md: 'flex' } }}>
+            {
+              pages.map( (page) => (
+                <NavLink
+                  to={ `category/${page}` }
+                  key={ page }
+                  className='nav-link'
+                >
+                  { page }
+                </NavLink>
+              )) 
+            }
+          </Box>
+
+          <Box sx={{ justifyContent: 'flex-end', alignContent: 'center', gap: 4, display: { xs: 'none', md: 'flex' } }}>
+            <Link to='/cart'>
+              <CartWidget />
+            </Link>
+          </Box>
+          {/* END DESKTOP */}
+
+          {/* MOBILE */}
+          <Box sx={{ width: '100%', display: { xs: 'flex', md: 'none' }, justifyContent: 'space-between' }}>
+
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+              sx={{ display: { xs: 'flex', md: 'none' } }}
+              onClick={ () => setIsDrawerOpen(!isDrawerOpen) }
+            >
+              <Menu />
+            </IconButton>
+
+            <Drawer
+              open={ isDrawerOpen }
+              onClose={ () => setIsDrawerOpen(false) }
+            >
+              <List>
+                {
+                  pages.map((page) => (
+                    <Link
+                      to={`category/${page}`}
+                      key={page}
+                      className='navbar'
+                      onClick={ () => setIsDrawerOpen(false) }
+                    >
+                      <ListItem>
+                        <ListItemButton sx={{ paddingX: '50px' }}>
+                          <ListItemText sx={{ textAlign: 'center' }} primary={ page } />
+                        </ListItemButton>
+                      </ListItem>
                     </Link>
-                 </Button>
-               ))}
-             </Box>
-   
-             <Box sx={{ flexGrow: 0 }}>
-               <CartWidget />
-             </Box>
-           </Toolbar>
-         </Container>
-       </AppBar>
-     );
-   };
-   export default NavBar;
+                  ))
+                }
+              </List>
+              <Divider />
+              <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+              </Box>
+            </Drawer>
+            
+            <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Link to='/' style={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: 'white',
+              }}>
+                <DiamondIcon sx={{ color: pink[300], fontSize: 40, p: 0, marginRight: 1}}/>
+
+                <Typography
+                  className='typography'
+                  variant="h5"
+                  noWrap
+                  href="/"
+                  sx={{
+                    color: 'white',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Blanqueria Oeste
+                </Typography>         
+              </Link>
+            </Box>
+
+            <Box sx={{ justifyContent: 'flex-end', alignContent: 'center', gap: 4, display: 'flex' }}>
+              <Link to='/cart' style={{ display: 'flex' }}>
+                <CartWidget />
+              </Link>
+            </Box>
+
+          </Box>
+
+          {/* END MOBILE */}
+
+        </Toolbar>
+      </Container>
+    </AppBar>
+  )
+}
    
