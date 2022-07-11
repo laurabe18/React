@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { React, useState } from 'react'
 
 import { AppBar, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
@@ -62,7 +62,7 @@ export default function NavBar() {
           </Box>
 
           <Box sx={{ justifyContent: 'flex-end', alignContent: 'center', gap: 4, display: { xs: 'none', md: 'flex' } }}>
-            <Link to='/cart'>
+            <Link className='link' to='/cart'>
               <CartWidget />
             </Link>
           </Box>
@@ -135,7 +135,7 @@ export default function NavBar() {
             </Box>
 
             <Box sx={{ justifyContent: 'flex-end', alignContent: 'center', gap: 4, display: 'flex' }}>
-              <Link to='/cart' style={{ display: 'flex' }}>
+              <Link className='link' to='/cart' style={{ display: 'flex' }}>
                 <CartWidget />
               </Link>
             </Box>

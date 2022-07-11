@@ -8,20 +8,25 @@ body{
 
 /* NAVBAR */
 .typography:hover{
-  color: pink;
+  color:#f06292 ;
 }
 
 .navbar{
   color: black;
   text-decoration: none;
 }
+
 .navbar:hover{
-  color: pink;
-}
+  color: #f06292;
+}  
 
 .nav-link:hover{
   color: pink;
-  text-shadow: 0 0 5px rgb(247, 90, 116), 0 0 15px rgb(247, 90, 116), 0 0 30px rgb(247, 90, 116), 0 0 50px rgb(247, 90, 116);
+  text-shadow: 0 0 5px #f06292, 0 0 15px #f06292, 0 0 30px #f06292, 0 0 50px #f06292;
+}
+
+.num{
+  color: white;
 }
 
 .loading{
@@ -31,5 +36,5 @@ body{
   font-style: italic;
   font-weight: bold;
   font-size: 20px;
-  text-shadow: 0 0 5px rgb(247, 90, 116), 0 0 15px rgb(247, 90, 116), 0 0 30px rgb(247, 90, 116), 0 0 50px rgb(247, 90, 116);
+  text-shadow: 0 0 5px #f06292, 0 0 15px #f06292, 0 0 30px #f06292, 0 0 50px #f06292;
 }

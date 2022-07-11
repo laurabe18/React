@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Box, Card, Typography } from "@mui/material";
 import {Link } from 'react-router-dom';
-import { CartContext } from './context/CartContext';
+import { CartContext } from '../context/CartContext';
 import ItemCount from './ItemCount';
 
 function ItemDetail({detail}) {
