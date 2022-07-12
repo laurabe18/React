@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
-import '../App.css';
 import ItemList from './ItemList';
 // import productsMock from './helpers/data';
 import { useParams } from 'react-router-dom';

@@ -1,15 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Cart from "./components/Cart";
 import MyProvider from "./context/CartContext";
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
+import NavBar from './components/layout/NavBar';
+import ItemListContainer from './components/item/ItemListContainer';
+import ItemDetailContainer from './components/item/ItemDetailContainer';
+import Cart from "./components/cart/Cart";
+import Checkout from "./components/checkout/Checkout";
+import Footer from './components/layout/Footer';
 
 import { initializeApp } from "firebase/app";
-import Checkout from "./components/Checkout";
-
-
 
 
 function App() {
@@ -38,6 +37,7 @@ function App() {
             <Route path='/cart' element ={<Cart/>}/>
             <Route path='/checkout' element ={<Checkout/>}/>
           </Routes>
+          <Footer />
         </MyProvider>
      </BrowserRouter>
     </>

@@ -38,3 +38,91 @@ body{
   font-size: 20px;
   text-shadow: 0 0 5px #f06292, 0 0 15px #f06292, 0 0 30px #f06292, 0 0 50px #f06292;
 }
+
+/* CARDS */
+
+.card-title{
+  color: #f06292;
+}
+
+.itemList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+  margin: 40px 40px;
+  transition: all 400ms ease;
+}
+
+
+.card:hover{
+  box-shadow: 5px 5px 20px #f06292;
+  transform: translateY(-3%);
+}
+
+.card-body{
+  justify-content: center;
+  text-align: center;
+  color: black;
+} 
+
+/* BOTONERAS */
+
+.pCount{
+  margin-top: 15px;
+  text-align: center;
+  background-color:transparent ;
+  border: none;
+  font-size: 25px;
+  color: #f06292;
+}
+
+.btnCount{
+  margin: 30px;
+  
+}
+
+.btnCount, .btnCard{
+  margin-top: 20px;
+  color: black;
+  box-shadow: 2px 2px 2px #f06292;
+  border: none;
+  text-decoration: none;
+}
+
+.btnCard:hover{
+  text-shadow: 0 0 5px #f06292, 0 0 15px #f06292, 0 0 30px #f06292, 0 0 50px #f06292;
+}
+
+/* CHECKOUT */
+
+.checkout{
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.checkout input{
+  padding: 0.2em;
+  margin: 10px;
+  border: 2px solid #f06292;
+  border-radius: 5px;
+}
+
+.pCheck{
+  background-color: #f06292;
+  max-width: 300px;
+}
+
+.form{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

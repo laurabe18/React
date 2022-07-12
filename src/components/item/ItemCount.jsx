@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../App.css';
+
 
 const ItemCount = ({inicial, stock, onAdd}) => {
     const [qty, setQty] = useState(inicial)
@@ -15,12 +15,6 @@ const ItemCount = ({inicial, stock, onAdd}) => {
         qty > inicial ? setQty(qty - 1)
         : setEnableAdd(true)
     }
-
-    // const updateCart = () => {
-
-    //     onAdd (qty);
-    //     setQty(inicial) ;
-    // };
 
   return (
     <>

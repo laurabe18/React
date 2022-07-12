@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../../context/CartContext'
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Link as Button, Typography, Card,  Box } from '@mui/material';
 
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -91,12 +91,12 @@ export default function Cart() {
         <Box
           sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', sm: 'row' }, marginTop: '20px', gap: { sm: '20px' } }}
         >
-          <Button component={Link} to='/checkout' className='btnCard btn' sx={{ display: 'flex', alignSelf: 'flex-start', margin: { xs: 'auto', sm: 'unset' }, textDecoration: 'none' }}>FINALIZAR COMPRA</Button>
+          <Button component={Link} to='/checkout' className='btnCard btn' sx={{ display: 'flex', alignSelf: 'flex-start', margin: { xs: 'auto', sm: 'unset' }, textDecoration: 'none', color: 'black' }}>FINALIZAR COMPRA</Button>
 
           <Button
             className='btnCard btn'
             onClick={emptyCart}
-            sx={{ marginTop: { xs: '20px', sm: 0}, textDecoration: 'none' }}
+            sx={{ marginTop: { xs: '20px', sm: 0}, textDecoration: 'none', color:'black' }}
           >
             VACIAR CARRITO
           </Button>
@@ -118,7 +118,7 @@ export default function Cart() {
       gap: 3,
      }}
     >
-      <Typography variant='h4'>TODAVIA TU CARRITO ESTA VACIO</Typography>
+      <Typography variant='h4' style={{color:'white'}}>TODAVIA TU CARRITO ESTA VACIO</Typography>
 
      <Link
       className='btnCard btn'

@@ -5,7 +5,7 @@ import { Menu } from '@mui/icons-material';
 import  DiamondIcon from '@mui/icons-material/Diamond';
 import { pink } from '@mui/material/colors';
 
-import CartWidget from './CartWidget';
+import CartWidget from '../cart/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 
 
