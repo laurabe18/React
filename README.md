@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# **Blanqueria Oeste**
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **_Descripcion_**
+---
 
-## Available Scripts
+Este repositorio contiene el proyecto desarrollado por Laura Romero, durante el curso de `React JS` de `Coderhouse`.
 
-In the project directory, you can run:
+La aplicación consiste en un ecommerce en el cual se puede filtrar los productos de acuerdo a categorías, y acceder a ver el detalle de cada producto. Los mismos pueden ser agregados al carrito, con la opcion de eliminar cada uno de los productos escogidos, vaciar el carrito o finalizar la "compra". En caso de querer concretar el pedido, debera completar un formulario con sus datos, simulando un proceso de compra exitoso. Con lo que obtendra un Codigo de la compra.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Puede visitarse el deploy del proyecto (realizado en Vercel) a traves del siguiente link:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://react-laurabe18.vercel.app/
 
-### `npm test`
+Se puede correr el proyecto de manera local, siguiendo los siguientes pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Descargá el proyecto de este repositorio.
+* Abrí el directorio del proyecto en tu editor de código favorito.
+* Corré el comando **_npm start_**.
+* Abrí http://localhost:3000 para verlo en tu navegador.
 
-### `npm run build`
+## **_Librerías utilizadas_**
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **React-router-dom:** Paquete para implementar routing dinámico en una web app. En este proyecto, se ha utilizado para el routing. Puedes añadirlo a tu proyecto con **_npm add react-router-dom_**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Bootstrap:** Framework que facilita el proceso de desarrollo de los sitios web responsivos y orietados a los dispositivos moviles, consta de script basados en  HTML, CSS y JS. Aqui la he utilizado (entre otro lugares) en las primeras cards de productos y orden de la compra. Puedes añadirlo a tu proyecto de la siguiente manera:
+    * CSS only, en el head:  `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">`*
+    *  Antes de cerrar la etiqueta body: `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>`*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Formik:** Librería utilizada para la validación y funcionamiento del forms. En este proyecto, se implemento en el form de envío de pedido (checkout). Añadilo a tu proyecto con **_npm add formik_**.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **MaterialUI:** Se incursiono en esta librería de componentes para agilizar el proceso de desarrollo y estilado de la aplicación (ya que en lo personal siempre he utilizado Bootstrap). En este proyecto lo utilice para el navegador(Navbar), card (detalle de los productos), carrito con los productos seleccionados y pie de pagina (footer). Añade a tu proyecto:
+    * *npm install @mui/material @emotion/react @emotion/styled*
+    * *npm install @mui/material @mui/styled-engine-sc styled-components*
+    * *npm install @mui/icons-material*
+    * *`<link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"/>`*
+* **Firebase:** En Firebase se almacenaron, el listado de los productos y las órdenes generadas de las compras(pedidos).
+* **LocalStorage:** Se utilizó para mantener el carrito de los usuarios en sus dispositivos, en el caso de que no hayan finalizado su compra, a fin de mejorar la experiencia de uso.
