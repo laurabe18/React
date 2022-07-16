@@ -53,28 +53,24 @@ export default function Cart() {
           <TableBody>
 
             {
-             cart.map((item, id)  => (
-             <>
-               <TableRow key={id}>
-                 <TableCell >
-                   <img src={`${item.pictureUrl}`} style={{ width: 100, height: 100 }} cols={1} 
+             cart.map(item  => (
+              <TableRow key={item.id}>
+                <TableCell >
+                  <img src={item.pictureUrl} style={{ width: 100, height: 100 }} cols={1} 
                     alt={item.title}
-                    loading="lazy"
-                    />
-                 </TableCell>
-                 <TableCell >{item.title + " x " + item.qty}</TableCell>
-                 <TableCell >$ {item.price}</TableCell>
-                 <TableCell >$ {item.price * item.qty }</TableCell>
-                 <TableCell >
-                   <IconButton aria-label="delete" color="error" onClick = {() => deleteItem(item.id)}>
-                     <DeleteIcon />
-                   </IconButton>
-                 </TableCell>
-                </TableRow>
-             </>
+                  />
+                </TableCell>
+                <TableCell >{item.title + " x " + item.qty}</TableCell>
+                <TableCell >$ {item.price}</TableCell>
+                <TableCell >$ {item.price * item.qty }</TableCell>
+                <TableCell >
+                  <IconButton aria-label="delete" color="error" onClick = {() => deleteItem(item.id)}>
+                    <DeleteIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
               ))
             }
-            
           </TableBody>
         </Table>
       </TableContainer>

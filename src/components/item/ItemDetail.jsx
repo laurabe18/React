@@ -12,9 +12,8 @@ function ItemDetail({detail}) {
 
     const {addItem} = useContext(CartContext)
 
-    const onAdd = (qty) =>{
+    const onAdd = (qty) => {
       setCounter(false);
-      // alert(`Cantidad de productos ${qty}`);
       //contador envia el num de productos comprados
        addItem(detail, qty)
     }

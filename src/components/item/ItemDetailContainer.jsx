@@ -1,10 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import productsMock from './helpers/data'
 import ItemDetail from './ItemDetail';
 import {doc, getDoc, getFirestore} from 'firebase/firestore';
-
 
 
 function ItemDetailContainer() {

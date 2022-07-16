@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import ItemList from './ItemList';
-// import productsMock from './helpers/data';
 import { useParams } from 'react-router-dom';
 import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
 

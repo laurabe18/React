@@ -13,6 +13,8 @@ Puede visitarse el deploy del proyecto (realizado en Vercel) a traves del siguie
 
 https://react-laurabe18.vercel.app/
 
+![](./React%20App.gif)
+
 Se puede correr el proyecto de manera local, siguiendo los siguientes pasos:
 
 * Descargá el proyecto de este repositorio.

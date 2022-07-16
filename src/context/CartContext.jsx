@@ -1,12 +1,11 @@
 import React, { useState, createContext, useEffect } from 'react';
-
 export const CartContext = createContext();
+
 
 const {Provider} = CartContext;
 
 const MyProvider = ({children}) =>{
     const[cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []);
-    console.log(cart);
 
     //METODO SAME-ITEMDETAIL, se va a encargar de detectar si el producto ya se encuentar en el carrito y accionara o no, devolviendo un booleano.
     const isInCart =(id)=>{
@@ -20,14 +19,14 @@ const MyProvider = ({children}) =>{
             qty
         }
         if(isInCart(newItem.id)){
-            //BUSCAMOS UN PRODUCTO POR SU ID EN EL CARRITO
+            //Buscamos un producto por su id en el carrito
          const findProduct = cart.find(product => product.id === newItem.id)
-            //SE BUSCA DONDE ESTA ESE PRODUCTO EN EL ARRAY DE OBJETOS, EN QUE POSICION SE ENCUENTRA
+            //Se busca el producto dentro del array de obj, en la posicion en la que se encuentra
         const productIndex = cart.indexOf(findProduct)
-           //QUEREMOS ACCEDER A SU CANTIDAD POR ESO SE REALIZA UN ARRAY AUX, PORQUE NO PODEMOS MANIPULAR EL ESTADO, PERO SI UNA COPIA
+           //Queremos acceder a su cantidad por eso realiza una copia del array
         const auxArray = [...cart]
         auxArray[productIndex].qty += qty
-          //  EL ARRAY SE SETEA CON EL NUEVO PRODUCTO
+          //  El array se setea cn el nuevo producto
         setCart(auxArray)
         }else{
             setCart([...cart, newItem])

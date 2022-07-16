@@ -1,14 +1,10 @@
 import { React, useState } from 'react'
-
 import { AppBar, Box, Container, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 import  DiamondIcon from '@mui/icons-material/Diamond';
 import { pink } from '@mui/material/colors';
-
 import CartWidget from '../cart/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
-
-
 
 
 export default function NavBar() {
